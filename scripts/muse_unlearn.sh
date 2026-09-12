@@ -47,7 +47,7 @@ for data_split in "${data_splits[@]}"; do
 
         CUDA_VISIBLE_DEVICES=0 python src/eval.py \
         experiment=eval/muse/default.yaml \
-        data_split=${data_split} \ 
+        data_split=${data_split} \
         task_name=${task_name} \
         model=${model} \
         model.model_args.pretrained_model_name_or_path=saves/unlearn/${task_name} \
@@ -67,7 +67,7 @@ for data_split in "${data_splits[@]}"; do
     for trainer in "${trainers[@]}"; do
         for scal in "forget_1" "forget_2" "forget_3" "forget_4"; do
             
-            task_name=muse_${model}_${data_split}_${trainer}_scal_${scal} \
+            task_name=muse_${model}_${data_split}_${trainer}_scal_${scal}
             
             CUDA_VISIBLE_DEVICES=0,1 accelerate launch --config_file configs/accelerate/default_config.yaml --main_process_port $MASTER_PORT \
             src/train.py --config-name=unlearn.yaml \
@@ -85,7 +85,7 @@ for data_split in "${data_splits[@]}"; do
 
             CUDA_VISIBLE_DEVICES=0 python src/eval.py \
             experiment=eval/muse/default.yaml \
-            data_split=${data_split} \ 
+            data_split=${data_split} \
             task_name=${task_name} \
             model=${model} \
             model.model_args.pretrained_model_name_or_path=saves/unlearn/${task_name} \
@@ -125,7 +125,7 @@ for data_split in "${data_splits[@]}"; do
 
             CUDA_VISIBLE_DEVICES=0 python src/eval.py \
             experiment=eval/muse/default.yaml \
-            data_split=${data_split} \ 
+            data_split=${data_split} \
             task_name=${task_name} \
             model=${model} \
             model.model_args.pretrained_model_name_or_path=saves/unlearn/${task_name} \
