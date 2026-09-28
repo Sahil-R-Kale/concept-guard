@@ -31,7 +31,13 @@ https://github.com/locuslab/open-unlearning/blob/main/docs/experiments.md
 
 ### 2. Running Experiments
 
-Use the provided configs in the `configs/` folder:
+The training and evaluation entry points, as well as the scripts in `scripts/`,
+expect a `configs/` directory. That directory is not included in this checkout,
+so experiment commands are not runnable until compatible Open-Unlearning configs
+are supplied at the repository root.
+
+Once the configs are available, use the provided scripts or override parameters
+following the Open-Unlearning instructions:
 
 - **Fine-tuning:**
   ```
@@ -42,8 +48,6 @@ Use the provided configs in the `configs/` folder:
   ```
   cg_unlearn.yaml
   ```
-
-Override parameters as needed following Open-Unlearning instructions.
 
 ## Notes
 - All experiments follow the same pipeline as Open-Unlearning.
